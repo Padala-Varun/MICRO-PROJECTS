@@ -1,0 +1,97 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+class bank{
+	private:
+		char name[1000],address[1000],y;
+		int a,balance;
+	public:
+		void open_account();
+		void deposit_money();
+		void withdraw_money();
+		void display_account();
+};
+void bank::open_account(){
+	cout<<"Enter Your Name=";
+	cin.ignore();
+	cin.getline(name,1000);
+	cout<<"Enter Your Address=";
+    cin.ignore();
+	cin.getline(address,1000);
+	cout<<"What type of account you want to open SAVING(S) or CURRENT(C)=";
+	cin>>y;
+	cout<<"Enter Amount For Deposit=";
+	cin>>balance;
+	cout<<"**YOUR ACCOUNT HAS BEEN CREATED**"<<endl;
+}
+void bank::deposit_money()
+{
+	cout<<"Enter how much money you want to deposit=";
+	cin>>a;
+	balance+=a;
+	cout<<"Your Total Balance="<<balance<<endl;	
+}
+void bank::display_account()
+{
+	cout<<"Your Name="<<" "<<name<<endl;
+	cout<<"Your Address="<<" "<<address<<endl;
+	cout<<"Type Of Account="<<" "<<y<<endl;
+	cout<<"Your Account Balance"<<" "<<balance<<endl;
+}
+void bank::withdraw_money()
+{
+	float amount;
+	cout<<endl<<"WithDrawl"<<endl;
+	cout<<"Enter The Amount you Want to WithDraw"<<endl;
+	cin>>amount;
+	balance=balance-amount;
+	cout<<"Your Total Balance="<<balance<<endl;
+}
+int main()
+{
+	cout<<"WELCOME TO OR BANK HOW CAN WE HELP YOU"<<endl;
+	int c;
+	char x;
+	bank obj;
+	do{
+	cout<<"1) Open Account"<<endl;
+	cout<<"2) Deposit Money"<<endl;
+	cout<<"3) WithDraw Money"<<endl;
+	cout<<"4) Display Account"<<endl;
+	cout<<"5) Exit"<<endl;
+	cout<<"select the option from above"<<endl;
+	cin>>c;
+	switch(c)
+	{
+		case 1: 
+		cout<<"1)Open Account"<<endl;
+		obj.open_account();
+		break;
+		case 2:
+			cout<<"2)Deposit Account"<<endl;
+			obj.deposit_money();
+			break;
+		case 3:
+			cout<<"3)WithDrawl Money"<<endl;
+			obj.withdraw_money();
+			break;
+		case 4:
+			cout<<"4)Display Account"<<endl;
+			obj.display_account();
+			break;
+		case 5:
+			if(c==5)
+			{
+				exit(1);
+			}
+		default:
+			cout<<"This is not exist , Please try again!!"<<endl;
+	}
+	cout<<"*Do You Want to select next option Then Press y*"<<endl;
+	cout<<"*if you want to exist then press n*"<<endl;
+	cin>>x;
+	if(x=='n'||x=='N')
+	exit(0);
+}while(x=='y'||x=='Y');
+	return 0;
+}
